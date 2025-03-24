@@ -12,7 +12,6 @@ export async function scrapeAmazon(keyword: string, retries = 3): Promise<Result
     try {
       logger.debug(`Scraping attempt ${attempt} for keyword: ${keyword}`);
       
-      // Removido o parâmetro i=aps para buscar em todas as categorias
       const url = `https://www.amazon.com.br/s?k=${encodeURIComponent(keyword)}`;
       
       const response = await axios.get(url, {
@@ -45,12 +44,10 @@ export async function scrapeAmazon(keyword: string, retries = 3): Promise<Result
       const dom = new JSDOM(response.data);
       const document = dom.window.document;
       
-      // Log the HTML for debugging
       logger.debug('HTML Content:', response.data.slice(0, 1000));
       
       const products: Product[] = [];
 
-      // Seletores atualizados para pegar mais tipos de resultados
       const productElements = document.querySelectorAll(
         '[data-component-type="s-search-result"], [data-asin]:not([data-asin=""])'
       );
@@ -119,7 +116,7 @@ export async function scrapeAmazon(keyword: string, retries = 3): Promise<Result
 
       if (products.length === 0) {
         if (attempt < retries) {
-          const delay = Math.floor(Math.random() * 2000) + 1000; // Random delay between 1-3 seconds
+          const delay = Math.floor(Math.random() * 2000) + 1000;
           logger.debug(`No products found, retrying in ${delay}ms...`);
           await sleep(delay);
           continue;

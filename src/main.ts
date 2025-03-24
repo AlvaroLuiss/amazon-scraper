@@ -1,8 +1,8 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { scrapeAmazon } from './src/services/scraper';
-import { Product } from './src/types/types';
-import logger from './src/utils/logger';
+import { scrapeAmazon } from './services/scraper';
+import { Product } from './types/types';
+import logger from './utils/logger';
 
 async function generateHTML(keyword: string, products: Product[]) {
   const styleContent = await fs.readFile(path.join(__dirname, 'styles', 'style.css'), 'utf-8');
