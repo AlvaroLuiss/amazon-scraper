@@ -2,8 +2,8 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import { createServer } from 'http';
 import { z } from 'zod';
-import { scrapeAmazon } from './src/services/scraper';
-import logger from './src/utils/logger';
+import { scrapeAmazon } from './services/scraper';
+import logger from './utils/logger';
 
 const app = express();
 const port = process.env.PORT || 3000;

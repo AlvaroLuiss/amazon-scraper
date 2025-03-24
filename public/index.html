@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Scraper</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Amazon Product Scraper</h1>
+        <div class="instructions">
+            <p>Enter a product keyword (e.g., "laptop", "headphones", "books") and click Search to see results from Amazon.</p>
+        </div>
+        <form class="search-container">
+            <input type="text" id="keyword" placeholder="Example: wireless headphones">
+            <button type="submit" id="searchBtn">Search Products</button>
+        </form>
+        
+        <div id="error" class="error hidden"></div>
+        <div id="results" class="results-grid"></div>
+        <div class="pagination-container">
+            <button id="prevPage" class="pagination-btn" disabled>Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextPage" class="pagination-btn">Next</button>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
