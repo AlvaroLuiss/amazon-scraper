@@ -38,7 +38,7 @@ npm install
 ```
 4. Inicie a aplicação:
 ```bash
-npm run start
+npm run dev
 ```
 
 ## 📁 Estrutura do Projeto
